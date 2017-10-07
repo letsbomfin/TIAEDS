@@ -25,7 +25,7 @@ namespace SimuladorEscalonador
         /// </summary>
         /// <param name="process">O objeto com o valor a ser buscado</param>
         /// <returns>O objeto procurado ou null, caso não exista</returns>
-        public Process buscar(Process process)
+        public Processo buscar(Processo process)
         {
             Item aux = this.first.prox;
             while (aux != null)
@@ -41,7 +41,7 @@ namespace SimuladorEscalonador
         /// Insere no final da lista.
         /// </summary>
         /// <param name="process">Objeto novo que se deseja inserir</param>
-        public void inserirFim(Process process)
+        public void inserirFim(Processo process)
         {
             Item aux = new Item(process);
             this.last.prox = aux;

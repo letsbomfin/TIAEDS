@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace SimuladorEscalonador
 {
-    public class Process
+    public class Processo
     {
         int processId;
         string Name;
-        int Priority, Quantum, Status;
+        int Priority, Quantum;
+        Estados estado;
         double executionTime;
         int cicleNum;
 
@@ -74,30 +75,30 @@ namespace SimuladorEscalonador
             this.cicleNum = numC;
         }
 
-        public int getEstado()
+        public Estados getEstado()
         {
-            return this.Status;
+            return this.estado;
         }
 
-        public void setEstado(int state)
+        public void setEstado(Estados state)
         {
-            this.Status = state;
+            this.estado = state;
         }
 
-        public Process(int pid, string nome)
+        public Processo(int pid, string nome)
         {
             this.processId = pid;
             this.Name = nome;
         }
 
-        public Process(int pid, string nome, int pri, double timeExec, int numC)
+        public Processo(int pid, string nome, int pri, double timeExec, int numC)
         {
             this.processId = pid;
             this.Name = nome;
             this.Priority = pri;
             this.executionTime = timeExec;
             this.cicleNum = numC;
-            this.Status = Estados.PRONTO;
+            this.estado = Estados.PRONTO;
         }
 
         public void ImprimeProcesso()
@@ -109,9 +110,9 @@ namespace SimuladorEscalonador
             printProcess += "Prioridade do processo" + Priority.ToString();
             printProcess += "Tempo de execução" + executionTime.ToString();
             printProcess += "Numero de ciclos" + cicleNum.ToString();
-            printProcess += "Estado do processo" + Status.ToString();
+            printProcess += "Estado do processo" + Enum.GetName(typeof(Estados), estado);
         }
     }
 
-   
+
 }

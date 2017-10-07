@@ -8,11 +8,11 @@ namespace SimuladorEscalonador
 {
     public class Item
     {
-        public Process process;
+        public Processo process;
         public Item prox;
 
 
-        public Item(Process p)
+        public Item(Processo p)
         {
             this.process = p;
             this.prox = null;
