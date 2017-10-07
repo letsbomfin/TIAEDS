@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SimuladorEscalonador
 {
-    class Processo
+    public class Process
     {
         int processId;
-        string nome;
-        int prioridade, quantum, estado;
-        double tempoExecucao;
-        int numCiclos;
+        string Name;
+        int Priority, Quantum, Status;
+        double executionTime;
+        int cicleNum;
 
         public int getProcessId()
         {
@@ -26,78 +26,78 @@ namespace SimuladorEscalonador
 
         public string getNome()
         {
-            return this.nome;
+            return this.Name;
         }
 
         public void setNome(string n)
         {
-            this.nome = n;
+            this.Name = n;
         }
 
         public int getPrioridade()
         {
-            return this.prioridade;
+            return this.Priority;
         }
 
         public void setPrioridade(int pri)
         {
-            this.prioridade = pri;
+            this.Priority = pri;
         }
 
         public int getQuantum()
         {
-            return this.quantum;
+            return this.Quantum;
         }
 
         public void setQuantum(int quant)
         {
-            this.quantum = quant;
+            this.Quantum = quant;
         }
 
         public double getTempoExec()
         {
-            return this.tempoExecucao;
+            return this.executionTime;
         }
 
         public void setTempoExec(double tempExec)
         {
-            this.tempoExecucao = tempExec;
+            this.executionTime = tempExec;
         }
 
         public int getNumClicos()
         {
-            return this.numCiclos;
+            return this.cicleNum;
         }
 
         public void setNumCiclos(int numC)
         {
-            this.numCiclos = numC;
+            this.cicleNum = numC;
         }
 
         public int getEstado()
         {
-            return this.estado;
+            return this.Status;
         }
 
         public void setEstado(int state)
         {
-            this.estado = state;
+            this.Status = state;
         }
 
-        public Processo(int pid, string nome)
+        public Process(int pid, string nome)
         {
             this.processId = pid;
-            this.nome = nome;
+            this.Name = nome;
         }
 
-        public Processo(int pid, string nome, int pri, double timeExec, int numC)
+        public Process(int pid, string nome, int pri, double timeExec, int numC)
         {
             this.processId = pid;
-            this.nome = nome;
-            this.prioridade = pri;
-            this.tempoExecucao = timeExec;
-            this.numCiclos = numC;
-            this.estado = Estados.PRONTO;
+            this.Name = nome;
+            this.Priority = pri;
+            this.executionTime = timeExec;
+            this.cicleNum = numC;
+            this.Status = Estados.PRONTO;
         }
 
         public void ImprimeProcesso()
@@ -105,11 +105,11 @@ namespace SimuladorEscalonador
             string printProcess = "";
 
             printProcess += "Process Id" + processId.ToString();
-            printProcess += "Nome do processo" + nome.ToString();
-            printProcess += "Prioridade do processo" + prioridade.ToString();
-            printProcess += "Tempo de execução" + tempoExecucao.ToString();
-            printProcess += "Numero de ciclos" + numCiclos.ToString();
-            printProcess += "Estado do processo" + estado.ToString();
+            printProcess += "Nome do processo" + Name.ToString();
+            printProcess += "Prioridade do processo" + Priority.ToString();
+            printProcess += "Tempo de execução" + executionTime.ToString();
+            printProcess += "Numero de ciclos" + cicleNum.ToString();
+            printProcess += "Estado do processo" + Status.ToString();
         }
     }
 

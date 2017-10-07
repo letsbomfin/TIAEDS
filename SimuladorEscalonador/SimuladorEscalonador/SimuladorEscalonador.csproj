@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Estados.cs" />
-    <Compile Include="Processo.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="MyList.cs" />
+    <Compile Include="Process.cs" />
+    <Compile Include="ProcessReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
