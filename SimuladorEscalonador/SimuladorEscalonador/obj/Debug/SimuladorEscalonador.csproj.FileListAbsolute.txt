@@ -1,3 +1,4 @@
 C:\Users\1053084\Desktop\SimuladorEscalonador\SimuladorEscalonador\bin\Debug\SimuladorEscalonador.exe.config
 C:\Users\lebom\Source\Repos\SimuladorEscalonador\SimuladorEscalonador\bin\Debug\SimuladorEscalonador.exe.config
 C:\Cristiano\PUC\TIAEDS\SimuladorEscalonador\SimuladorEscalonador\bin\Debug\SimuladorEscalonador.exe.config
+C:\Users\lebom\Source\Repos\TIAED\SimuladorEscalonador\SimuladorEscalonador\bin\Debug\SimuladorEscalonador.exe.config
