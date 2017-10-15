@@ -10,6 +10,10 @@ namespace SimuladorEscalonador
     {
         static void Main(string[] args)
         {
+            var reader = new ProcessReader();
+            var escalonador = new Escalonador();
+
+            reader.LerArquivo(escalonador);
         }
     }
 }

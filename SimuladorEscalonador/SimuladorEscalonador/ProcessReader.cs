@@ -8,22 +8,27 @@ namespace SimuladorEscalonador
 {
     public class ProcessReader
     {
-        public void LerArquivo(MyList list)
+        public void LerArquivo(Escalonador escalonador)
         {
-            int index = 0;
-
-            string line;
-            // Ler uma linha do arquivo
-            System.IO.StreamReader file =
-            new System.IO.StreamReader(@"Processos.txt");
-            while ((line = file.ReadLine()) != null)
+            if (escalonador != null)
             {
-                var prod = CreateProcess(line);
+                string line;
+                // Ler uma linha do arquivo
+                System.IO.StreamReader file =
+                new System.IO.StreamReader(@"Processos.txt");
+                while ((line = file.ReadLine()) != null)
+                {
+                    var process = CreateProcess(line);
+                    escalonador.InserirNaLista(process);
 
-                index++;
-
+                }
+                file.Close();
             }
-            file.Close();
+            else
+            {
+                throw new NullReferenceException("Inicialize a lista antes de tentar fazer uma leitura de dados, pois a leitura já insere os dados na lista");
+            }
+
         }
 
         public Processo CreateProcess(string line)
@@ -32,8 +37,11 @@ namespace SimuladorEscalonador
 
             var readedLine = line.Split(';');
             var process = new Processo(int.Parse(readedLine[0]), readedLine[1]);
-            process.setEstado
-
+            process.setPrioridade(int.Parse(readedLine[2]));
+            process.setTempoExec(double.Parse(readedLine[3]));
+            process.setNumCiclos(int.Parse(readedLine[4]));
+            process.setEstado(Estados.PRONTO);
+            return process;
         }
 
     }
