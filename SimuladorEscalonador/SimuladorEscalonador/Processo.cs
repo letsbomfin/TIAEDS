@@ -10,9 +10,9 @@ namespace SimuladorEscalonador
     {
         int processId;
         string Name;
-        int Priority, Quantum;
+        int Priority;
         Estados estado;
-        double executionTime;
+        double executionTime, tempoEspera;
         int cicleNum;
 
         public int getProcessId()
@@ -45,16 +45,6 @@ namespace SimuladorEscalonador
             this.Priority = pri;
         }
 
-        public int getQuantum()
-        {
-            return this.Quantum;
-        }
-
-        public void setQuantum(int quant)
-        {
-            this.Quantum = quant;
-        }
-
         public double getTempoExec()
         {
             return this.executionTime;
@@ -75,6 +65,16 @@ namespace SimuladorEscalonador
             this.cicleNum = numC;
         }
 
+        public double getTempoEspera()
+        {
+            return this.tempoEspera;
+        }
+
+        public void setTempoEspera(double tempEsp)
+        {
+            this.tempoEspera = tempEsp;
+        }
+
         public Estados getEstado()
         {
             return this.estado;
@@ -91,14 +91,22 @@ namespace SimuladorEscalonador
             this.Name = nome;
         }
 
-        public Processo(int pid, string nome, int pri, double timeExec, int numC)
+        public Processo(int pid, string nome, int pri, double timeExec, int numC, double tEspera)
         {
             this.processId = pid;
             this.Name = nome;
             this.Priority = pri;
             this.executionTime = timeExec;
             this.cicleNum = numC;
+            this.tempoEspera = tEspera;
             this.estado = Estados.PRONTO;
+        }
+
+        public Processo(int pid, string nome, int priority, int cicleNum, double executionTime) : this(pid, nome)
+        {
+            this.Priority = priority;
+            this.cicleNum = cicleNum;
+            this.executionTime = executionTime;
         }
 
         public void ImprimeProcesso()
