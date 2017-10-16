@@ -47,5 +47,28 @@ namespace SimuladorEscalonador
             this.last.prox = aux;
             this.last = aux;
         }
+
+        public Processo RemoveItem(Processo v)
+        {
+            Item aux = this.first;
+            Item remove;
+            while (aux != null)
+            {
+                if (aux.prox.process.getProcessId() == v.getProcessId())
+                {
+                    remove = aux.prox;
+                    if (aux.prox.Equals(this.last))
+                    {
+                        this.last = aux;
+                    }
+                    aux.prox = aux.prox.prox;
+                    return remove.process;
+                }
+
+                else aux = aux.prox;
+            }
+            return null;
+
+        }
     }
 }

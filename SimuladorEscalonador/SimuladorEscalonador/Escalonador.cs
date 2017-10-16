@@ -23,7 +23,7 @@ namespace SimuladorEscalonador
             var prioridade = processo.getPrioridade();
             if (ListasPrioridades.Length < prioridade)
             {
-                AumentarPrioridade();
+                AumentarlistaPrioridade();
                 ListasPrioridades[prioridade] = new MyList();
                 ListasPrioridades[prioridade].inserirFim(processo);
             }
@@ -39,7 +39,9 @@ namespace SimuladorEscalonador
             Console.WriteLine($"Id: {processo.getProcessId()}| Processo {processo.getNome()}| Prioridade {processo.getPrioridade()}| Inserido na lista de prioridade {prioridade} ");
         }
 
-        private void AumentarPrioridade()
+
+
+        private void AumentarlistaPrioridade()
         {
             ListaAux = ListasPrioridades;
             ListasPrioridades = new MyList[ListaAux.Length + Incremento];
@@ -49,5 +51,27 @@ namespace SimuladorEscalonador
             }
         }
 
+        public Processo PegarProcessoPorPrioridade(int prioridade)
+        {
+            if (ListasPrioridades[prioridade] != null)
+            {
+                try
+                {
+                    var processo = ListasPrioridades[prioridade].RemoveItem(ListasPrioridades[prioridade].first.prox.process);
+                    Console.WriteLine($"Pegando processo {processo.getProcessId()}| Nome: {processo.getNome()} para execução");
+                    return processo;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Processos com prioridade {prioridade} acabaram");
+                    return null;
+                }
+            }
+            Console.WriteLine($"Processos com prioridade {prioridade} acabaram");
+            return null;
+
+        }
     }
+
 }
+
